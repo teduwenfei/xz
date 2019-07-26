@@ -75,9 +75,19 @@ router.post('/login',function(req,res)
 		}
 	});
 });
-
+*/
 //3.检索用户
+var alarm(1);
+for(var i=0;i<10000;i++)
+{
+	/*setTimeout(function(){
+		console.log(i);
+	},1000);*/
+	console.log(i);
+}
 
+//console.log(i);
+/*
 
 router.get('/detail',function(req,res){
 	var obj = req.query;

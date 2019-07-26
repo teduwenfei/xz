@@ -1,5 +1,5 @@
-<h1>鏌ヨ鍟嗗搧</h1>
+<h1>查询商品</h1>
 <form method="get" action="/product/detail">
-  鍟嗗搧缂栧彿<input type="text" name="lid"><br>
+  商品编号<input type="text" name="lid"><br>
   <input type="submit">
 </form>

@@ -48,13 +48,13 @@ router.get('/detail',function(req,res){
 	});
 });
 //3.添加商品
-router.post('/add',function(req,res){
-	var obj=req.body;
+router.get('/add',function(req,res){
+	var obj=req.query;
 	for (var key in obj)
 	{
 		if (!obj[key])
 		{
-			res.send({code:401,msg:key+'required'});
+			res.send(code:401,msg:key+'required');
 		}
 	}
 	pool.query('INSERT INTO xz_laptop SET ?',[obj],function(err,result){
@@ -70,48 +70,6 @@ router.post('/add',function(req,res){
 	})
 })
 //4.删除商品
-router.get('/delete',function(req,res){
-	var obj=req.query;
-	if(!obj.lid)
-	{
-		res.send({code:401,msg:'lid required'});
-	}
-	pool.query('DELETE FROM xz_laptop WHERE lid=?',[obj.lid],function(err,result){
-		if(err) throw err;
-		console.log(result);
-		if(result.affectedRows>0)
-		{
-			res.send({code:200,msg:'delete suc'});
-		}
-		else
-		{
-			res.send({code:301,msg:'delete err'});
-		}
-	});
-});
 //5.修改商品
-router.get('/update',function(req,res){
-	var obj=req.query;
-	var i=400;
-	for (var key in obj)
-	{
-		if(!obj[key])
-		{
-			i++;
-			res.send({code:i,msg:key+'required'});
-		}
-	}
-	pool.query('UPDATE xz_laptop SET ? WHERE lid=?',[obj,obj.lid],function(err,result){
-		if(err) throw err;
-		if(result.affectedRows>0)
-		{
-			res.send({code:200,msg:'update suc'});
-		}
-		else
-		{
-			res.send({code:301,msg:'update err'});
-		}
-	});
-});
 
 module.exports=router;
